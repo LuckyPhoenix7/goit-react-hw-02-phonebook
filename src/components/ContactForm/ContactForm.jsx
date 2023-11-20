@@ -1,5 +1,11 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import {
+  StyledBtn,
+  StyledError,
+  StyledField,
+  StyledForm,
+} from './ContactForm.styled';
 
 export const ContactForm = ({ addContact }) => {
   const schema = Yup.object().shape({
@@ -23,19 +29,19 @@ export const ContactForm = ({ addContact }) => {
         actions.resetForm();
       }}
     >
-      <Form>
+      <StyledForm>
         <label htmlFor="name">
           Name
-          <Field name="name" />
-          <ErrorMessage name="name" />
+          <StyledField name="name" />
+          <StyledError component="span" name="name" />
         </label>
         <label htmlFor="number">
           Number
-          <Field type="number" name="number" />
-          <ErrorMessage name="number" />
+          <StyledField type="number" name="number" />
+          <StyledError component="span" name="number" />
         </label>
-        <button type="submit">Add contact</button>
-      </Form>
+        <StyledBtn type="submit">Add contact</StyledBtn>
+      </StyledForm>
     </Formik>
   );
 };
